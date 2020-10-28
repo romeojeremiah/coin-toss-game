@@ -55,10 +55,16 @@ function tallyScore(random, userPick, computerPick){
     
     if (userScore === 5 && computerScore === 5){
         winner.innerHTML = `<h1>It's a Tie</h1>`;
+        userScore=0;
+	    computerScore=0;
     } else if (userScore === 5){
         winner.innerHTML = `<h1>You Win!!!</h1>`;
+        userScore=0;
+	    computerScore=0;
     } else if (computerScore === 5){
         winner.innerHTML = `<h1>Computer Wins!!!</h1>`;
+        userScore=0;
+	    computerScore=0;
     }
 }
 
@@ -76,7 +82,8 @@ buttons.forEach(function(button){
         } else {
             computerSelection = 'tails';
         }
-        
+        const winner = document.querySelector('#winner');
+	    winner.innerHTML="";
         //spin the coin
         const spin = document.querySelector('#image');
         spin.classList.add('animate');
